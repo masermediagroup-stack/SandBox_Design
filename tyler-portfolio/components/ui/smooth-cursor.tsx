@@ -41,6 +41,15 @@ const SPARKLE_COLORS = [
   "rgba(167, 139, 250, 1)",
   "rgba(139, 92, 246, 1)",
 ] as const
+const FORCE_CURSOR_STYLE_ID = "tyler-force-smooth-cursor"
+const FORCE_CURSOR_CSS = `
+html.has-smooth-cursor,
+html.has-smooth-cursor *,
+html.has-smooth-cursor *::before,
+html.has-smooth-cursor *::after {
+  cursor: none !important;
+}
+`
 
 function isTrackablePointer(pointerType: string) {
   return pointerType !== "touch"
@@ -141,9 +150,21 @@ export function SmoothCursor({
     if (!isEnabled) {
       return
     }
+
+    let style = document.getElementById(FORCE_CURSOR_STYLE_ID)
+    if (!style) {
+      style = document.createElement("style")
+      style.id = FORCE_CURSOR_STYLE_ID
+      style.textContent = FORCE_CURSOR_CSS
+      document.head.appendChild(style)
+    }
+
     document.documentElement.classList.add("has-smooth-cursor")
+    document.body.style.cursor = "none"
+
     return () => {
       document.documentElement.classList.remove("has-smooth-cursor")
+      document.body.style.cursor = ""
     }
   }, [isEnabled])
 

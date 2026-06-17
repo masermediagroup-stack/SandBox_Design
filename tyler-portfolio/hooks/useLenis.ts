@@ -24,6 +24,7 @@ export function useLenis(
       smoothWheel: true,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
+    (wrapper as HTMLElement & { __tylerLenis?: Lenis }).__tylerLenis = lenis;
 
     ScrollTrigger.scrollerProxy(wrapper, {
       scrollTop(value) {
@@ -52,6 +53,7 @@ export function useLenis(
 
     return () => {
       gsap.ticker.remove(tick);
+      delete (wrapper as HTMLElement & { __tylerLenis?: Lenis }).__tylerLenis;
       ScrollTrigger.defaults({ scroller: window });
       ScrollTrigger.scrollerProxy(wrapper);
       lenis.destroy();

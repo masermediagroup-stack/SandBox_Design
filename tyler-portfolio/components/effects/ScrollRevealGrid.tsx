@@ -21,6 +21,8 @@ export function ScrollRevealGrid({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const cards = el.querySelectorAll("[data-reveal-card]");
+    if (!cards.length) return;
+
     const ctx = gsap.context(() => {
       gsap
         .timeline({

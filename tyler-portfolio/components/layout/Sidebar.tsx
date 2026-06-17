@@ -13,7 +13,8 @@ import styles from "@/styles/sidebar.module.css";
 
 const workLinks = [
   { href: "/work/web-design", label: "Web Design" },
-  { href: "/work/ui-ux", label: "UI/UX" },
+  { href: "/work/marketing", label: "Marketing" },
+  { href: "/work/motion-design", label: "Motion Design" },
 ] as const;
 
 const brandSubLinks = [
@@ -37,9 +38,9 @@ function BrandDesignNav({
       <div className={styles.brandRow}>
         <Link
           href="/work/brand-design"
-          className={`body-md ${styles.brandLink} ${isActive("/work/brand-design") ? styles.navLinkActive : ""}`}
+          className={`body-md ${styles.brandLink} ${pathname === "/work/brand-design" ? styles.navLinkActive : ""}`}
         >
-          Brand Design
+          <span className={styles.navLabel}>Brand Design</span>
         </Link>
         <button
           type="button"
@@ -57,21 +58,13 @@ function BrandDesignNav({
         </button>
       </div>
       <ul className={`${styles.subList} ${brandOpen ? styles.subListOpen : ""}`}>
-        <li>
-          <Link
-            href="/work/brand-design"
-            className={`${styles.subLink} ${pathname === "/work/brand-design" ? styles.subLinkActive : ""}`}
-          >
-            Overview
-          </Link>
-        </li>
         {brandSubLinks.map((l) => (
           <li key={l.href}>
             <Link
               href={l.href}
               className={`${styles.subLink} ${isActive(l.href) ? styles.subLinkActive : ""}`}
             >
-              {l.label}
+              <span className={styles.navLabel}>{l.label}</span>
             </Link>
           </li>
         ))}
@@ -90,23 +83,27 @@ export function Sidebar() {
   return (
     <aside className={styles.aside}>
       <div className={styles.block}>
-        <Link href="/" aria-label="Home">
-          <Image
-            src="/images/logo-mark-black.png"
-            alt=""
-            width={3418}
-            height={1506}
-            priority
-            quality={100}
-            sizes="(max-width: 1023px) 80px, 96px"
-            className="h-10 w-auto"
-          />
+        <Link href="/" aria-label="Home" className={styles.logoLink}>
+          <span className={styles.logoDither}>
+            <Image
+              src="/images/logo-mark-black.png"
+              alt=""
+              width={3418}
+              height={1506}
+              priority
+              quality={100}
+              sizes="(max-width: 1023px) 80px, 96px"
+              className={styles.logoImage}
+            />
+          </span>
         </Link>
 
         <div>
           <p className={styles.name}>{site.name}</p>
           <p className={`body-sm ${styles.mutedSecondary}`}>{site.titleLine}</p>
-          <p className={`body-sm ${styles.mutedSecondary}`}>{site.subtitleLine}</p>
+          {site.subtitleLine ? (
+            <p className={`body-sm ${styles.mutedSecondary}`}>{site.subtitleLine}</p>
+          ) : null}
         </div>
 
         <p className={`body-sm ${styles.bio}`}>{site.shortBio}</p>
@@ -122,7 +119,7 @@ export function Sidebar() {
                   href={l.href}
                   className={`body-md ${styles.navLink} ${isActive(l.href) ? styles.navLinkActive : ""}`}
                 >
-                  {l.label}
+                  <span className={styles.navLabel}>{l.label}</span>
                 </Link>
               </li>
             ))}
@@ -132,7 +129,15 @@ export function Sidebar() {
                 href="/work/thumbnail"
                 className={`body-md ${styles.navLink} ${isActive("/work/thumbnail") ? styles.navLinkActive : ""}`}
               >
-                Thumbnail
+                <span className={styles.navLabel}>Thumbnail</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/work/ui-ux"
+                className={`body-md ${styles.navLink} ${isActive("/work/ui-ux") ? styles.navLinkActive : ""}`}
+              >
+                <span className={styles.navLabel}>UI/UX</span>
               </Link>
             </li>
           </ul>
@@ -161,7 +166,6 @@ export function Sidebar() {
             {site.linkedInLabel}
           </a>
           <div className={styles.badge}>
-            <span className={styles.dot} aria-hidden />
             <span className={`label-sm ${styles.navMuted}`}>{site.availability}</span>
           </div>
           <InteractiveHoverButton

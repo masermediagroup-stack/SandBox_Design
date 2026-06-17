@@ -12,15 +12,20 @@ import { PlaceholderBlock } from "@/components/ui/PlaceholderBlock";
 import styles from "@/styles/project-card.module.css";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const imageClassName =
+    project.slug === "miller-more-handiwork"
+      ? `h-full w-full object-contain ${styles.millerMoreImage}`
+      : "h-full w-full object-contain";
+
   return (
     <Link href={`/project/${project.slug}`} className={styles.card}>
       <MagicCard
-        className="rounded-[2px] border border-[var(--border-line)] bg-[var(--bg-primary)] p-0"
-        gradientFrom="rgba(124, 58, 237, 0.35)"
-        gradientTo="rgba(237, 233, 254, 0.9)"
+        className="rounded-[var(--project-radius,24px)] border border-[var(--border-soft)] bg-[var(--bg-primary)] p-0"
+        gradientFrom="rgba(124, 58, 237, 0.16)"
+        gradientTo="rgba(237, 233, 254, 0.28)"
         gradientSize={220}
-        gradientColor="rgba(124, 58, 237, 0.28)"
-        gradientOpacity={0.42}
+        gradientColor="rgba(124, 58, 237, 0.12)"
+        gradientOpacity={0.2}
       >
         <div className={styles.media}>
           <div className={styles.mediaInner}>
@@ -30,7 +35,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 alt=""
                 width={800}
                 height={600}
-                className="h-full w-full object-cover"
+                className={imageClassName}
                 sizes="(max-width: 768px) 100vw, 640px"
               />
             ) : (
@@ -38,7 +43,7 @@ export function ProjectCard({ project }: { project: Project }) {
             )}
           </div>
         </div>
-        <div className="p-4">
+        <div className={styles.footer}>
           <div className={styles.meta}>
             <span className={`display-md ${styles.title}`}>{project.title}</span>
             <CategoryTag>{categoryLabel(project.category)}</CategoryTag>

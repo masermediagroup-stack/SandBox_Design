@@ -9,7 +9,7 @@ Personal portfolio website for Tyler Vea. Editorial minimalist design inspired b
 - **Fonts:** **Raleway** (display / `.display-*`, `--font-display`) + **Roboto** (body / UI, `--font-body`) via `next/font/google`
 - **Colors:** White bg, black text, Electric Violet (#7C3AED) accents
 - **Layout:** Fixed left sidebar (320px) + scrollable right content
-- **Effects:** Preloader (counter), noise grain overlay, Lenis smooth scroll — NO custom cursor
+- **Effects:** Preloader, noise grain overlay, Lenis smooth scroll, and SmoothCursor custom cursor on desktop pointer devices
 - **Theme:** Light only, no dark mode toggle
 - **Framework:** Next.js 16+ (App Router, TypeScript), **CSS Modules + design tokens for layout**, Tailwind for shadcn / Magic UI islands
 - **Animations:** GSAP + ScrollTrigger, magic.ui components
@@ -35,7 +35,7 @@ Personal portfolio website for Tyler Vea. Editorial minimalist design inspired b
 - GSAP needs `gsap.context()` in React for cleanup
 - Lenis should only apply to the content area, not the fixed sidebar
 - Preloader should only fire on first visit (sessionStorage)
-- General Sans may need self-hosting since it's not on Google Fonts
+- Keep the font stack limited to Raleway display weights 600/700/800 and Roboto body/UI weights 400/500/700.
 
 ## Date Started
 

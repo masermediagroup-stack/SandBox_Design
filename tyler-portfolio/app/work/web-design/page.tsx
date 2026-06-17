@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 
 import { site } from "@/data/site";
-import { getProjectsByCategory, partitionWebDesignProjects } from "@/lib/projects";
+import { getProjectsByCategory } from "@/lib/projects";
 
-import { ProjectRow } from "@/components/ui/ProjectRow";
-import { ScrollRevealGrid } from "@/components/effects/ScrollRevealGrid";
+import { ProjectWheel } from "@/components/ui/ProjectWheel";
 
 import styles from "@/styles/work-page.module.css";
 
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 
 export default function WebDesignPage() {
   const items = getProjectsByCategory("web-design");
-  const { scope, client } = partitionWebDesignProjects(items);
 
   return (
     <div>
@@ -28,38 +26,7 @@ export default function WebDesignPage() {
           </p>
         ))}
       </aside>
-      <ScrollRevealGrid className="flex flex-col">
-        {scope.length > 0 ? (
-          <section
-            className={styles.section}
-            aria-labelledby="web-design-scope-heading"
-          >
-            <h2 id="web-design-scope-heading" className={styles.subheading}>
-              Scope Work
-            </h2>
-            <div className="flex flex-col gap-6">
-              {scope.map((p) => (
-                <ProjectRow key={p.slug} project={p} />
-              ))}
-            </div>
-          </section>
-        ) : null}
-        {client.length > 0 ? (
-          <section
-            className={styles.section}
-            aria-labelledby="web-design-client-heading"
-          >
-            <h2 id="web-design-client-heading" className={styles.subheading}>
-              Client Work
-            </h2>
-            <div className="flex flex-col gap-6">
-              {client.map((p) => (
-                <ProjectRow key={p.slug} project={p} />
-              ))}
-            </div>
-          </section>
-        ) : null}
-      </ScrollRevealGrid>
+      <ProjectWheel projects={items} emptyLabel="Web Design projects" />
     </div>
   );
 }

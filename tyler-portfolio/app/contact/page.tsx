@@ -9,7 +9,7 @@ import workStyles from "@/styles/work-page.module.css";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Send a message to Tyler Vea — creative technologist and brand strategist.",
+    "Send a message to Tyler Vea — Design Engineer.",
 };
 
 export default function ContactPage() {
@@ -22,7 +22,7 @@ export default function ContactPage() {
           collaborations. You can also email Tyler directly at{" "}
           <Link
             href={`mailto:${site.email}`}
-            className="font-semibold text-[var(--portfolio-accent)] underline-offset-4 hover:underline"
+            className="font-bold text-[var(--portfolio-accent)] underline-offset-4 hover:underline"
           >
             {site.email}
           </Link>

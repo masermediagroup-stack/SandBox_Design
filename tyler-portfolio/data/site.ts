@@ -1,18 +1,18 @@
 export const site = {
   name: "Tyler Vea",
-  titleLine: "Creative Technologist",
-  subtitleLine: "& Brand Strategist",
+  titleLine: "Design Engineer",
+  subtitleLine: "",
   shortBio:
-    "Designer from Central Texas building brands, websites, and visual identities for startups and creators. Taking jobs and freelance projects alongside co-founding Maser Media.",
-  heroTagline: "Creative Technologist & Brand Strategist",
+    "Creating from Central Texas, building brands, websites, and visual identities for startups and creators. Taking jobs and freelance projects alongside co-founding Maser Media.",
+  heroTagline: "Design Engineer",
   heroLines: [
     "7 years crafting visual identities,",
-    "motion graphics, and market-focused",
+    "web, and market-focused",
     "design across industries.",
   ],
   mediumBio:
-    "Creative Technologist and Brand Strategist with seven years of experience crafting compelling visual identities, motion graphics, and market-focused design across industries.",
-  fullBio: `Creative Technologist and Brand Strategist with seven years of experience crafting compelling visual identities, motion graphics, and market-focused design across industries. Proficient across the full Adobe Suite — including Photoshop, Illustrator, and After Effects — with hands-on experience in social media branding, editorial design, production work, poster design, and streaming graphics. Known for developing big-picture creative concepts and executing them with precision, ensuring every deliverable speaks directly to the intended audience and market.
+    "Design Engineer with seven years of experience crafting compelling visual identities, web, and market-focused design across industries.",
+  fullBio: `Design Engineer with seven years of experience crafting compelling visual identities, web, and market-focused design across industries. Proficient across the full Adobe Suite — including Photoshop, Illustrator, and After Effects — with hands-on experience in social media branding, editorial design, production work, poster design, and streaming graphics. Known for developing big-picture creative concepts and executing them with precision, ensuring every deliverable speaks directly to the intended audience and market.
 
 A natural collaborator and idea generator who thrives in fast-paced creative environments. Experienced in managing multiple client relationships simultaneously, delivering cohesive brand identities for startups, product companies, content creators, and media organizations. Currently expanding into UI/UX design and AI-assisted creative workflows, bridging traditional design craft with modern tools to future-proof every project.`,
   email: "m.tylervea@gmail.com",
@@ -36,7 +36,7 @@ A natural collaborator and idea generator who thrives in fast-paced creative env
   thumbnailsIntro:
     "Thumbnails serve as the first visual impression viewers encounter in their YouTube timeline. Thoughtfully designed thumbnails that faithfully reflect your video draw in viewers and enhance comprehension. The choice of colors, text, and facial expressions wield considerable influence over click-through rate and ultimately dictate video success.",
   thumbnailsIntroAccent:
-    "100+ million views globally for clients with an average ctr increase of 8.5%.",
+    "150+ million views globally for clients with an average ctr increase of 8.5%.",
   socialMediaIntro:
     "Social assets, campaigns, and platform-native graphics crafted for clarity, consistency, and conversion.",
 } as const;

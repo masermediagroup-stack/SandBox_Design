@@ -6,7 +6,9 @@ export function getProjectBySlug(slug: string): Project | undefined {
 }
 
 export function getFeaturedProjects(): Project[] {
-  return projects.filter((p) => p.featured);
+  return projects
+    .filter((p) => p.featured)
+    .toSorted((a, b) => (a.featuredOrder ?? 999) - (b.featuredOrder ?? 999));
 }
 
 export function getProjectsByCategory(category: ProjectCategory): Project[] {
@@ -42,6 +44,7 @@ export function categoryLabel(category: ProjectCategory): string {
   const map: Record<ProjectCategory, string> = {
     "web-design": "Web Design",
     "ui-ux": "UI/UX",
+    "motion-design": "Motion Design",
     logos: "Logos",
     "brand-identities": "Brand Identities",
     "social-media": "Social Media",
@@ -55,6 +58,7 @@ export function categoryPath(category: ProjectCategory): string {
   const map: Record<ProjectCategory, string> = {
     "web-design": "/work/web-design",
     "ui-ux": "/work/ui-ux",
+    "motion-design": "/work/motion-design",
     logos: "/work/brand-design/logos",
     "brand-identities": "/work/brand-design/brand-identities",
     "social-media": "/work/brand-design/social-media",

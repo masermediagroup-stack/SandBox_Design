@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Raleway, Roboto } from "next/font/google";
+import { Raleway, Roboto } from "next/font/google";
 
 import { NoiseOverlay } from "@/components/effects/NoiseOverlay";
 import { Preloader } from "@/components/effects/Preloader";
@@ -9,37 +9,50 @@ import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 import "./globals.css";
 
+const preloaderBootScript = `
+try {
+  var key = "tyler-portfolio-block-decay-loader-v1";
+  var done = window.localStorage && window.localStorage.getItem(key) === "1";
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var smoothCursor =
+    window.matchMedia &&
+    window.matchMedia("(any-hover: hover) and (any-pointer: fine)").matches &&
+    !reduced;
+  if (smoothCursor) {
+    document.documentElement.classList.add("has-smooth-cursor");
+  }
+  if (done || reduced) {
+    document.documentElement.dataset.preloaderComplete = "true";
+  }
+} catch (error) {}
+`;
+
 const raleway = Raleway({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["600", "700", "800"],
 });
 
 const roboto = Roboto({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Tyler Vea — Creative Technologist & Brand Strategist",
+    default: "Tyler Vea — Design Engineer",
     template: "%s · Tyler Vea",
   },
   description:
-    "Designer from Central Texas building brands, websites, and visual identities for startups and creators.",
+    "Creating from Central Texas, building brands, websites, and visual identities for startups and creators.",
   icons: {
     icon: "/images/logo-star.svg",
   },
   openGraph: {
-    title: "Tyler Vea — Creative Technologist & Brand Strategist",
+    title: "Tyler Vea — Design Engineer",
     description:
-      "Designer from Central Texas building brands, websites, and visual identities for startups and creators.",
+      "Creating from Central Texas, building brands, websites, and visual identities for startups and creators.",
     type: "website",
   },
 };
@@ -53,8 +66,11 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${raleway.variable} ${roboto.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${raleway.variable} ${roboto.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: preloaderBootScript }} />
+      </head>
       <body
         suppressHydrationWarning
         className="h-full overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)]"

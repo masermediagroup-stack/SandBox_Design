@@ -1,21 +1,19 @@
-/* Adapted from Uiverse.io by somshri16 — contact form */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
   max-width: 28rem;
-  background-color: var(--bg-secondary);
-  padding: 16px;
-  border-radius: 2px;
-  position: relative;
+  padding: 24px;
   border: 1px solid var(--border-line);
+  border-radius: 18px;
+  background: var(--bg-primary);
 }
 
 .flex {
   display: flex;
   width: 100%;
-  gap: 6px;
+  gap: 8px;
 }
 
 .form label {
@@ -28,33 +26,56 @@
   min-width: 0;
 }
 
-.form label .input {
+.form label .input,
+.input01 {
   width: 100%;
-  padding: 10px 10px 20px 10px;
+  padding: 10px 12px 22px;
+  border: 1px solid var(--border-line);
+  border-radius: 11px;
   outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-  border-radius: 5px;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   color: var(--text-primary);
   font-family: var(--font-body), sans-serif;
   font-size: 0.875rem;
+  transition:
+    border-color var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo);
 }
 
-.form label .input:focus {
+.input01 {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.form label .input:focus,
+.input01:focus {
   border-color: var(--portfolio-accent);
-  box-shadow: 0 0 0 1px var(--portfolio-accent-glow);
+  background: var(--bg-primary);
+  box-shadow: 0 0 0 3px var(--portfolio-accent-glow);
 }
 
-.form label .input + span {
+.form label .input + span,
+.form label .input01 + span {
   position: absolute;
-  left: 10px;
-  top: 15px;
+  left: 12px;
   color: var(--text-muted);
   font-size: 0.9em;
   cursor: text;
-  transition: 0.3s ease;
+  transition:
+    top var(--duration-normal) var(--ease-out-expo),
+    font-size var(--duration-normal) var(--ease-out-expo),
+    color var(--duration-fast) var(--ease-out-expo);
   pointer-events: none;
   text-transform: lowercase;
+}
+
+.form label .input + span {
+  top: 15px;
+}
+
+.form label .input01 + span {
+  top: 40px;
 }
 
 .form label .input:placeholder-shown + span {
@@ -62,177 +83,84 @@
   font-size: 0.9em;
 }
 
-.form label .input:focus + span,
-.form label .input:not(:placeholder-shown) + span {
-  top: 30px;
-  font-size: 0.7em;
-  font-weight: 600;
-}
-
-.form label .input:not(:placeholder-shown) + span {
-  color: #16a34a;
-}
-
-.input01 {
-  width: 100%;
-  padding: 10px 10px 20px 10px;
-  outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-  border-radius: 5px;
-  resize: vertical;
-  min-height: 5rem;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--font-body), sans-serif;
-  font-size: 0.875rem;
-}
-
-.input01:focus {
-  border-color: var(--portfolio-accent);
-  box-shadow: 0 0 0 1px var(--portfolio-accent-glow);
-}
-
-.form label .input01 + span {
-  position: absolute;
-  left: 10px;
-  top: 50px;
-  color: var(--text-muted);
-  font-size: 0.9em;
-  cursor: text;
-  transition: 0.3s ease;
-  pointer-events: none;
-  text-transform: lowercase;
-}
-
 .form label .input01:placeholder-shown + span {
   top: 40px;
   font-size: 0.9em;
 }
 
+.form label .input:focus + span,
+.form label .input:not(:placeholder-shown) + span {
+  top: 31px;
+  color: var(--text-muted);
+  font-size: 0.7em;
+  font-weight: 700;
+}
+
 .form label .input01:focus + span,
 .form label .input01:not(:placeholder-shown) + span {
   top: 50px;
+  color: var(--text-muted);
   font-size: 0.7em;
-  font-weight: 600;
-}
-
-.form label .input01:not(:placeholder-shown) + span {
-  color: #16a34a;
+  font-weight: 700;
 }
 
 .fancy {
-  background-color: transparent;
-  border: 2px solid var(--border-hover);
-  border-radius: 2px;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  display: inline-flex;
+  width: 100%;
+  min-height: 2.875rem;
+  align-items: center;
+  justify-content: center;
   margin: 4px 0 0;
-  outline: none;
-  overflow: visible;
-  padding: 8px 24px;
-  position: relative;
+  padding: 12px 24px;
+  border: 1px solid var(--portfolio-accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--portfolio-accent);
+  cursor: pointer;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
   text-align: center;
   text-decoration: none;
-  text-transform: none;
-  transition: all 0.3s ease-in-out;
-  user-select: none;
-  font-size: 13px;
-  font-family: var(--font-body), sans-serif;
-  width: 100%;
-}
-
-.fancy::before {
-  content: " ";
-  width: 1.7rem;
-  height: 2px;
-  background: var(--border-hover);
-  top: 50%;
-  left: 1.5em;
-  position: absolute;
-  transform: translate(230%, -50%);
-  transform-origin: center;
   transition:
-    background 0.3s linear,
-    width 0.3s linear;
+    transform var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo),
+    color var(--duration-fast) var(--ease-out-expo);
 }
 
 .fancy .text {
-  font-size: 1.125em;
-  line-height: 1.33333em;
   display: block;
+  color: inherit;
+  line-height: 1.2;
   text-align: center;
-  transition: all 0.3s ease-in-out;
-  text-transform: lowercase;
   text-decoration: none;
-  color: var(--text-secondary);
+  text-transform: lowercase;
 }
 
-.fancy .topKey {
-  height: 2px;
-  width: 1.5625rem;
-  top: -2px;
-  left: 0.625rem;
-  position: absolute;
-  background: var(--bg-primary);
-  transition:
-    width 0.5s ease-out,
-    left 0.3s ease-out;
-}
-
-.fancy .bottomKey1 {
-  height: 2px;
-  width: 1.5625rem;
-  right: 1.875rem;
-  bottom: -2px;
-  position: absolute;
-  background: var(--bg-primary);
-  transition:
-    width 0.5s ease-out,
-    right 0.3s ease-out;
-}
-
+.fancy::before,
+.fancy .topKey,
+.fancy .bottomKey1,
 .fancy .bottomKey2 {
-  height: 2px;
-  width: 0.625rem;
-  right: 0.625rem;
-  bottom: -2px;
-  position: absolute;
-  background: var(--bg-primary);
-  transition:
-    width 0.5s ease-out,
-    right 0.3s ease-out;
+  display: none;
 }
 
 .fancy:hover {
-  color: #fff;
   background: var(--portfolio-accent);
-  border-color: var(--portfolio-accent);
-}
-
-.fancy:hover::before {
-  width: 1.5rem;
-  background: #fff;
-}
-
-.fancy:hover .text {
   color: #fff;
+  transform: translateY(-1px);
 }
 
-.fancy:hover .topKey {
-  left: -2px;
-  width: 0;
-}
-
-.fancy:hover .bottomKey1,
-.fancy:hover .bottomKey2 {
-  right: 0;
-  width: 0;
+.fancy:active {
+  transform: scale(0.98);
 }
 
 .fancy:focus-visible {
   outline: 2px solid var(--portfolio-accent);
   outline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+  .flex {
+    flex-direction: column;
+  }
 }

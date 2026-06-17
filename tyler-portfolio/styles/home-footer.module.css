@@ -6,19 +6,13 @@
   max-width: min(90vw, 36rem);
   padding: 0 1rem 0.75rem;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(1.625rem, 4.2vw, 2.75rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
   text-align: center;
   text-wrap: balance;
-  background: linear-gradient(
-    to top,
-    #1a1a1a 0%,
-    #525252 38%,
-    #d4d4d4 72%,
-    #fafafa 100%
-  );
+  background: linear-gradient(to top, #1d1d1f 0%, #6f6f73 54%, #fafafc 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

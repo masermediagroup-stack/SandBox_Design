@@ -8,7 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-body);
   --font-heading: var(--font-display);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -89,42 +89,51 @@
 
 :root {
   /* Portfolio shell tokens (CSS modules) — electric violet editorial system */
-  --bg-primary: #ffffff;
-  --bg-secondary: #fafafa;
-  --bg-tertiary: #f5f5f5;
-  --text-primary: #0a0a0a;
-  --text-secondary: #404040;
-  --text-muted: #8a8a8a;
+  --bg-primary: #f6f6fa;
+  --bg-secondary: #eef2f6;
+  --bg-tertiary: #eef2f6;
+  --bg-parchment: #f6f6fa;
+  --surface-dark: #272729;
+  --surface-dark-2: #2a2a2c;
+  --surface-dark-3: #252527;
+  --surface-black: #050507;
+  --text-primary: #838693;
+  --text-secondary: #838693;
+  --text-muted: #838693;
+  --text-on-dark: #f6f6fa;
+  --text-muted-on-dark: #eef2f6;
   --portfolio-accent: #7c3aed;
   --portfolio-accent-hover: #6d28d9;
   --portfolio-accent-light: #ede9fe;
-  --portfolio-accent-glow: rgba(124, 58, 237, 0.15);
-  --border-line: #e5e5e5;
-  --border-hover: #d4d4d4;
+  --portfolio-accent-glow: rgba(124, 58, 237, 0.14);
+  --border-line: #ebecf0;
+  --border-soft: rgba(131, 134, 147, 0.2);
+  --border-hover: #ebecf0;
+  --product-shadow: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --duration-fast: 0.2s;
   --duration-normal: 0.4s;
   --duration-slow: 0.8s;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --background: #f6f6fa;
+  --foreground: #838693;
+  --card: #eef2f6;
+  --card-foreground: #838693;
+  --popover: #eef2f6;
+  --popover-foreground: #838693;
   /* Align shadcn primary with portfolio violet for Magic UI / buttons */
   --primary: oklch(0.45 0.22 290);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --secondary: #eef2f6;
+  --secondary-foreground: #838693;
+  --muted: #eef2f6;
+  --muted-foreground: #838693;
+  --accent: #eef2f6;
+  --accent-foreground: #838693;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --border: #ebecf0;
+  --input: #ebecf0;
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
@@ -132,13 +141,13 @@
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar: #eef2f6;
+  --sidebar-foreground: #838693;
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-accent: #eef2f6;
+  --sidebar-accent-foreground: #838693;
+  --sidebar-border: #ebecf0;
   --sidebar-ring: oklch(0.708 0 0);
 }
 
@@ -216,29 +225,36 @@
     outline: 2px solid var(--portfolio-accent);
     outline-offset: 2px;
   }
+
+  p {
+    text-wrap: pretty;
+  }
 }
 
 @layer components {
   .display-xl {
     font-family: var(--font-display), sans-serif;
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-size: clamp(3rem, 7.4vw, 7rem);
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.03em;
+    text-wrap: balance;
   }
   .display-lg {
     font-family: var(--font-display), sans-serif;
-    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-size: clamp(2rem, 4.8vw, 4.5rem);
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.02em;
+    text-wrap: balance;
   }
   .display-md {
     font-family: var(--font-display), sans-serif;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.5rem);
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.01em;
+    text-wrap: balance;
   }
   .body-lg {
     font-family: var(--font-body), sans-serif;
@@ -248,9 +264,9 @@
   }
   .body-md {
     font-family: var(--font-body), sans-serif;
-    font-size: 1rem;
+    font-size: 1.0625rem;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.47;
   }
   .body-sm {
     font-family: var(--font-body), sans-serif;
@@ -284,4 +300,13 @@ html.has-smooth-cursor *,
 html.has-smooth-cursor *::before,
 html.has-smooth-cursor *::after {
   cursor: none !important;
+}
+
+@media (any-hover: hover) and (any-pointer: fine) {
+  html,
+  html *,
+  html *::before,
+  html *::after {
+    cursor: none !important;
+  }
 }

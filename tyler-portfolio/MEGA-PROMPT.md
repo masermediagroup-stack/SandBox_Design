@@ -6,7 +6,7 @@
 
 ## ROLE
 
-Act as an elite Creative Front-End Developer and UI Engineer specializing in editorial minimalist web design. You are building a personal portfolio website for Tyler Vea — a Creative Technologist and Brand Strategist with 7 years of experience. The site must feel like a curated design exhibition, not a generic portfolio template.
+Act as an elite Creative Front-End Developer and UI Engineer specializing in editorial minimalist web design. You are building a personal portfolio website for Tyler Vea — a Design Engineer with 7 years of experience. The site must feel like a curated design exhibition, not a generic portfolio template.
 
 Your code must be production-ready, accessible, performant, and Awwwards-tier in visual quality.
 
@@ -18,7 +18,7 @@ Your code must be production-ready, accessible, performant, and Awwwards-tier in
 - **Styling:** CSS Modules + global CSS custom properties (NO Tailwind)
 - **Animations:** GSAP (Core + ScrollTrigger), Studio Freight Lenis (smooth scroll)
 - **Components:** React for interactive elements, magic.ui components where appropriate
-- **Fonts:** Syne (display/headings, weights 400-800) + General Sans (body, weights 300-600) — load via `next/font/google` for Syne, self-host General Sans or use CDN
+- **Fonts:** Raleway (display/headings, weights 600, 700, 800) + Roboto (body/UI, weights 400, 500, 700) via `next/font/google`
 - **Hosting:** Vercel
 - **Images:** Next.js `<Image />` component with priority loading for above-fold
 
@@ -62,19 +62,19 @@ Your code must be production-ready, accessible, performant, and Awwwards-tier in
 ### Typography Scale
 
 ```css
-/* Display — Syne */
-.display-xl  { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 7rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; }
-.display-lg  { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.02em; }
-.display-md  { font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; }
+/* Display — Raleway */
+.display-xl  { font-family: 'Raleway', sans-serif; font-size: clamp(3rem, 8vw, 7rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; }
+.display-lg  { font-family: 'Raleway', sans-serif; font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.02em; }
+.display-md  { font-family: 'Raleway', sans-serif; font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; }
 
-/* Body — General Sans */
-.body-lg     { font-family: 'General Sans', sans-serif; font-size: 1.125rem; font-weight: 400; line-height: 1.6; }
-.body-md     { font-family: 'General Sans', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; }
-.body-sm     { font-family: 'General Sans', sans-serif; font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
+/* Body — Roboto */
+.body-lg     { font-family: 'Roboto', sans-serif; font-size: 1.125rem; font-weight: 400; line-height: 1.6; }
+.body-md     { font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; }
+.body-sm     { font-family: 'Roboto', sans-serif; font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
 
-/* Labels — General Sans */
-.label-lg    { font-family: 'General Sans', sans-serif; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
-.label-sm    { font-family: 'General Sans', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+/* Labels — Roboto */
+.label-lg    { font-family: 'Roboto', sans-serif; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+.label-sm    { font-family: 'Roboto', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
 ```
 
 ### Spacing System
@@ -139,18 +139,17 @@ Use an 8px grid: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192.
 
 ### 2. Name + Title
 ```
-TYLER VEA                         ← Syne, 700, 1.25rem, uppercase, letter-spacing 0.05em
-Creative Technologist             ← General Sans, 400, 0.875rem, --text-secondary
-& Brand Strategist                ← General Sans, 400, 0.875rem, --text-secondary
+TYLER VEA                         ← Raleway, 700, 1.25rem, uppercase, letter-spacing 0.05em
+Design Engineer             ← Roboto, 400, 0.875rem, --text-secondary
 ```
 
 ### 3. Short Bio
 ```
-Designer from Central Texas building brands, websites,
+Creating from Central Texas, building brands, websites,
 and visual identities for startups and creators.
 Currently co-founding Maser Media.
 ```
-— General Sans, 400, 0.875rem, `--text-muted`, `line-height: 1.6`, max 3-4 lines.
+— Roboto, 400, 0.875rem, `--text-muted`, `line-height: 1.6`, max 3-4 lines.
 
 ### 4. Navigation — Category List
 
@@ -224,13 +223,13 @@ app/
 Layout: Full right-content area. Big typographic statement.
 
 ```
-TYLER                             ← display-xl, Syne 800, spans full width
+TYLER                             ← display-xl, Raleway 800, spans full width
 VEA                               ← display-xl, with "VEA" in --accent color
 ```
 
 Below the name:
 ```
-Creative Technologist & Brand Strategist    ← body-lg, --text-secondary
+Design Engineer    ← body-lg, --text-secondary
 7 years crafting visual identities,         ← body-md, --text-muted
 motion graphics, and market-focused         ← body-md, --text-muted
 design across industries.                   ← body-md, --text-muted
@@ -354,7 +353,7 @@ Layout:
 ```
 ← Back to [Category]              ← label-sm, --text-muted, with left arrow
 
-PROJECT TITLE                     ← display-lg, Syne 700
+PROJECT TITLE                     ← display-lg, Raleway 700
 Client Name  ·  2024  ·  Web Design    ← body-md, --text-muted
 
 ─────────────────────────────────  ← 1px border
@@ -385,7 +384,7 @@ Next Project →                    ← Navigate to next project in category
 ### 1. Preloader
 
 - Fullscreen overlay: `position: fixed`, `z-index: 9999`, bg `var(--bg-primary)`
-- Center: massive counter in Syne 800, `clamp(4rem, 15vw, 10rem)`
+- Center: massive counter in Raleway 800, `clamp(4rem, 15vw, 10rem)`
 - Counter animates `0 → 100` over ~2.5 seconds (GSAP tween)
 - On complete: overlay slides up (`translateY(-100%)`) with `--ease-out-expo` over 0.8s
 - Below counter: "TYLER VEA" in label-sm, `--text-muted`, letter-spacing `0.15em`
@@ -645,7 +644,7 @@ tyler-portfolio/
 │   │       ├── logos/            ← Individual logo files (up to 10+)
 │   │       └── thumbnails/       ← YouTube thumbnails (bulk, 20-50+)
 │   └── fonts/
-│       └── GeneralSans/          ← Self-hosted General Sans files
+│       └── README.md             ← Do not add fonts unless replacing the approved stack
 ├── styles/
 │   ├── sidebar.module.css
 │   ├── hero.module.css
@@ -729,13 +728,13 @@ Build in this sequence:
 ## TYLER'S BIO CONTENT (use in sidebar + about)
 
 **Short (sidebar):**
-Designer from Central Texas building brands, websites, and visual identities for startups and creators. Currently co-founding Maser Media.
+Creating from Central Texas, building brands, websites, and visual identities for startups and creators. Currently co-founding Maser Media.
 
 **Medium (home hero):**
-Creative Technologist and Brand Strategist with seven years of experience crafting compelling visual identities, motion graphics, and market-focused design across industries.
+Design Engineer with seven years of experience crafting compelling visual identities, motion graphics, and market-focused design across industries.
 
 **Full (about page or project detail context):**
-Creative Technologist and Brand Strategist with seven years of experience crafting compelling visual identities, motion graphics, and market-focused design across industries. Proficient across the full Adobe Suite — including Photoshop, Illustrator, and After Effects — with hands-on experience in social media branding, editorial design, production work, poster design, and streaming graphics. Known for developing big-picture creative concepts and executing them with precision, ensuring every deliverable speaks directly to the intended audience and market.
+Design Engineer with seven years of experience crafting compelling visual identities, motion graphics, and market-focused design across industries. Proficient across the full Adobe Suite — including Photoshop, Illustrator, and After Effects — with hands-on experience in social media branding, editorial design, production work, poster design, and streaming graphics. Known for developing big-picture creative concepts and executing them with precision, ensuring every deliverable speaks directly to the intended audience and market.
 
 A natural collaborator and idea generator who thrives in fast-paced creative environments. Experienced in managing multiple client relationships simultaneously, delivering cohesive brand identities for startups, product companies, content creators, and media organizations. Currently expanding into UI/UX design and AI-assisted creative workflows, bridging traditional design craft with modern tools to future-proof every project.
 

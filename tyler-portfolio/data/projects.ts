@@ -1,6 +1,7 @@
 export type ProjectCategory =
   | "web-design"
   | "ui-ux"
+  | "motion-design"
   | "logos"
   | "brand-identities"
   | "social-media"
@@ -31,11 +32,29 @@ export interface Project {
   scope: ProjectScope;
   tags: string[];
   featured: boolean;
+  featuredOrder?: number;
   tool?: string;
   videoUrl?: string;
 }
 
 export const projects: Project[] = [
+  {
+    slug: "miller-more-handiwork",
+    title: "MillerMore Handi Work",
+    client: "MillerMore Handi Work",
+    year: 2025,
+    category: "web-design",
+    description:
+      "Full website design and development built inside Framer. A complete end-to-end build delivering a polished digital presence for a hands-on handyman service.",
+    thumbnail: "/images/projects/miller-more-handiwork/thumb.png",
+    images: [],
+    liveUrl: "https://millermorehandiwork.com",
+    webDesignGroup: "client",
+    scope: "full",
+    tags: ["Web Design", "Framer", "Full Build"],
+    featured: true,
+    featuredOrder: 1,
+  },
   {
     slug: "caddo-offices",
     title: "Caddo Offices",
@@ -49,7 +68,7 @@ export const projects: Project[] = [
     liveUrl: "https://caddo-redesign.vercel.app",
     scope: "full",
     tags: ["Web Design", "Layout", "Development"],
-    featured: true,
+    featured: false,
   },
   {
     slug: "texas-grounds",
@@ -65,23 +84,7 @@ export const projects: Project[] = [
       "https://texasgrounds-1vu6pgcvg-masermediagroup-stacks-projects.vercel.app/#portfolio",
     scope: "full",
     tags: ["Web Design", "Layout", "Development"],
-    featured: true,
-  },
-  {
-    slug: "miller-more-handiwork",
-    title: "Miller More Handy Work",
-    client: "Miller More Handy Work",
-    year: 2025,
-    category: "web-design",
-    description:
-      "Full website design and development built inside Framer. A complete end-to-end build delivering a polished digital presence for a hands-on handyman service.",
-    thumbnail: null,
-    images: [],
-    liveUrl: "https://millermorehandiwork.com",
-    webDesignGroup: "client",
-    scope: "full",
-    tags: ["Web Design", "Framer", "Full Build"],
-    featured: true,
+    featured: false,
   },
   {
     slug: "dashboard-kit-alpha",
@@ -95,7 +98,8 @@ export const projects: Project[] = [
     images: [],
     scope: "design-only",
     tags: ["Dashboard", "Design System"],
-    featured: false,
+    featured: true,
+    featuredOrder: 4,
     tool: "Figma",
   },
   {
@@ -125,7 +129,23 @@ export const projects: Project[] = [
     images: [],
     scope: "full",
     tags: ["Identity", "Motion"],
-    featured: false,
+    featured: true,
+    featuredOrder: 2,
+  },
+  {
+    slug: "maser-media-logo-system",
+    title: "Maser Media Logo System",
+    client: "Maser Media",
+    year: 2025,
+    category: "logos",
+    description:
+      "Logo system preview for a clean brand mark, scaled for the portfolio wheel and logo gallery direction.",
+    thumbnail: "/images/logos/maser-media.png",
+    images: [],
+    scope: "design-only",
+    tags: ["Logo", "Brand Mark"],
+    featured: true,
+    featuredOrder: 3,
   },
   {
     slug: "brand-beta",
@@ -155,6 +175,21 @@ export const projects: Project[] = [
     scope: "full",
     tags: ["Social", "Campaign"],
     featured: false,
+  },
+  {
+    slug: "motion-reel-study",
+    title: "Motion Reel Study",
+    client: "Internal",
+    year: 2025,
+    category: "motion-design",
+    description:
+      "Temporary motion design study for animated brand cards, kinetic type, and social-first movement systems.",
+    thumbnail: null,
+    images: [],
+    scope: "design-only",
+    tags: ["Motion", "Animation", "Study"],
+    featured: false,
+    tool: "After Effects",
   },
 ];
 
@@ -203,9 +238,4 @@ export interface ThumbnailItem {
   src: string | null;
 }
 
-export const thumbnails: ThumbnailItem[] = Array.from({ length: 28 }, (_, i) => ({
-  id: `thumb-${i + 1}`,
-  title: `Video title ${i + 1}`,
-  client: i % 3 === 0 ? "Client A" : undefined,
-  src: null,
-}));
+export const thumbnails: ThumbnailItem[] = [];
